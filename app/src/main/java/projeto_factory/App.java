@@ -5,6 +5,23 @@ package projeto_factory;
 
 public class App {
         public static void main(String[] args) {
-        System.out.println();
+
+        //Instanciar a fabrica de cursos
+        CursoFactory factory = new CursoFactory();
+
+        //A fabrica devolve o tipo de curso baseado no parâmetro (tecnico, bacharelado ou mestrado)
+        //Se nenhum desses parãmetros foi passado, ela retorna null automaticamente
+        iCurso curso = factory.getCurso("tecnico");
+
+        Estudante estudante = new Estudante("Jonas", "Tecnico");
+
+        Disciplina disciplina = new Disciplina("Matematica", "5.0", "Tecnico");
+
+        estudante.setList(disciplina);
+
+        curso.Avaliacao(estudante);
+
+        System.out.println(curso.Avaliacao(estudante));
+
     }
 }

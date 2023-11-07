@@ -6,10 +6,10 @@ public class CursoFactory {
             return new Tecnico();
         }
         if(tipoCurso.equalsIgnoreCase("Bacharelado")) {
-            return new Bacharelado();
+            return new BachareladoDecorator(new Tecnico());
         }
         if(tipoCurso.equalsIgnoreCase("Mestrado")) {
-            return new Mestrado();
+            return new MestradoDecorator(new BachareladoDecorator(new Tecnico()));
         }
         return null;
     }
