@@ -2,9 +2,9 @@ package projeto_factory;
 
 public class Disciplina {
     String nome;
-    Double nota;
+    String nota;   
 
-    public Disciplina(String nome, Double nota) {
+    public Disciplina(String nome, String nota) {
         this.nome = nome;
         this.nota = nota;
     }
@@ -17,11 +17,11 @@ public class Disciplina {
         this.nome = nome;
     }
 
-    public Double getNota() {
+    public String getNota() {
         return nota;
     }
 
-    public void setNota(Double nota) {
+    public void setNota(String nota) {
         this.nota = nota;
     }
 }
