@@ -22,17 +22,13 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:31.1-jre'
-<<<<<<< Updated upstream
-
-    implementation 'org.mongodb:mongodb-driver-sync:4.11.0'
-=======
-    
+    implementation 'mysql:mysql-connector-java:8.0.28' // Versão pode variar
     implementation 'org.mongodb:mongodb-driver-sync:4.11.0'
     implementation 'org.slf4j:slf4j-api:1.7.32' // Use the latest version
     implementation 'org.slf4j:slf4j-simple:1.7.32' // Use the latest version
-
->>>>>>> Stashed changes
+    implementation 'com.google.code.gson:gson:2.8.8'
 }
+
 
 application {
     // Define the main class for the application.
