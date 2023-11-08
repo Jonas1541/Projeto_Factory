@@ -11,9 +11,13 @@ public class App {
         // Instanciar a fábrica de escola
         EscolaFactory escolaFactory = new EscolaFactory();
 
-        // Suponha que as disciplinas estejam implementadas corretamente
-        Disciplina matematica = new Disciplina("Matematica", "5.0", "Tecnico");
-        Disciplina historia = new Disciplina("Historia", "8.0", "Bacharelado");
+        // Instanciar a fábrica de disciplinas
+        DisciplinaFactory disciplinaFactory = new DisciplinaFactory();
+
+        // Utilizar o método criarDisciplina da fábrica de disciplinas para criar as
+        // disciplinas
+        Disciplina matematica = disciplinaFactory.criarDisciplina("Matematica", "5.0", "Tecnico");
+        Disciplina historia = disciplinaFactory.criarDisciplina("Historia", "8.0", "Bacharelado");
 
         // Utilizar o método criarEstudanteComCursoEDisciplinas para criar o estudante
         // com curso e disciplinas

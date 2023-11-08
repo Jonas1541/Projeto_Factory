@@ -21,9 +21,6 @@ public class EscolaFactory {
 
         List<Disciplina> listaDisciplinas = new ArrayList<>();
         for (Disciplina disciplina : disciplinas) {
-            if (!disciplina.getTipoCurso().equalsIgnoreCase(tipoCurso)) {
-                throw new IllegalArgumentException("Tipo de disciplina não corresponde ao tipo de curso: " + disciplina.getNome());
-            }
             listaDisciplinas.add(disciplina);
         }
 
