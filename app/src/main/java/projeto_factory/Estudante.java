@@ -5,13 +5,11 @@ import java.util.List;
 
 public class Estudante {
     String nome;
-    String curso;
 
     List<Disciplina> list = new ArrayList<>();
 
-    public Estudante(String nome, String curso) {
+    public Estudante(String nome) {
         this.nome = nome;
-        this.curso = curso;
     }
 
     public String getNome() {
@@ -22,19 +20,11 @@ public class Estudante {
         this.nome = nome;
     }
 
-    public String getCurso() {
-        return curso;
-    }
-
-    public void setCurso(String curso) {
-        this.curso = curso;
-    }
-
     public List<Disciplina> getList() {
         return list;
     }
 
-    public void setList(Disciplina disciplina) {
+    public void addDisciplina(Disciplina disciplina) {
         list.add(disciplina);
     }
 

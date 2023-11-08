@@ -13,13 +13,11 @@ public class App {
         //Se nenhum desses parãmetros foi passado, ela retorna null automaticamente
         iCurso curso = factory.getCurso("tecnico");
 
-        Estudante estudante = new Estudante("Jonas", "Tecnico");
+        Estudante estudante = new Estudante("Jonas");
 
         Disciplina disciplina = new Disciplina("Matematica", "5.0", "Tecnico");
 
-        estudante.setList(disciplina);
-
-        curso.Avaliacao(estudante);
+        estudante.addDisciplina(disciplina);
 
         System.out.println(curso.Avaliacao(estudante));
 
