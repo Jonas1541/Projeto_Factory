@@ -1,6 +1,6 @@
 package projeto_factory;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EscolaFactory {
@@ -15,13 +15,23 @@ public class EscolaFactory {
         Estudante estudante = new Estudante(nomeEstudante);
         iCurso curso = cursoFactory.getCurso(tipoCurso);
 
-        List<Disciplina> listaDisciplinas = Arrays.asList(disciplinas);
+        if (curso == null) {
+            throw new IllegalArgumentException("Tipo de curso inválido: " + tipoCurso);
+        }
+
+        List<Disciplina> listaDisciplinas = new ArrayList<>();
+        for (Disciplina disciplina : disciplinas) {
+            if (!disciplina.getTipoCurso().equalsIgnoreCase(tipoCurso)) {
+                throw new IllegalArgumentException("Tipo de disciplina não corresponde ao tipo de curso: " + disciplina.getNome());
+            }
+            listaDisciplinas.add(disciplina);
+        }
+
         for (Disciplina disciplina : listaDisciplinas) {
             estudante.addDisciplina(disciplina);
         }
 
-        // Aqui você pode associar o curso ao estudante, se necessário
-        // ...
+        curso.Avaliacao(estudante);
 
         return estudante;
     }
