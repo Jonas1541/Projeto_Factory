@@ -21,17 +21,17 @@ public class App {
         // A fabrica devolve o tipo de curso baseado no parâmetro (tecnico, bacharelado
         // ou mestrado)
         // Se nenhum desses parãmetros foi passado, ela retorna null automaticamente
-        iCurso curso = factory.getCurso("tecnico");
+        iCurso curso = factory.getCurso("bacharelado");
 
-<<<<<<< Updated upstream
-=======
         // Crie instâncias de estudantes
->>>>>>> Stashed changes
-        Estudante estudante = new Estudante("Jonas");
 
-        Disciplina disciplina = new Disciplina("Matematica", "5.0", "Tecnico");
+        Estudante estudante = new Estudante("Kaio");
 
-        estudante.addDisciplina(disciplina);
+        Disciplina matematica = new Disciplina("Matematica", "5.0", "Tecnico");
+        Disciplina historia = new Disciplina("Historia", "8.0", "Bacharelado");
+
+        estudante.addDisciplina(matematica);
+        estudante.addDisciplina(historia);
 
         System.out.println(curso.Avaliacao(estudante));
 
