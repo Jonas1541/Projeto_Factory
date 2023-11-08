@@ -3,16 +3,30 @@
  */
 package projeto_factory;
 
-public class App {
-        public static void main(String[] args) {
+import java.util.List;
 
-        //Instanciar a fabrica de cursos
+import org.bson.Document;
+
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+
+public class App {
+    public static void main(String[] args) {
+
+        // Instanciar a fabrica de cursos
         CursoFactory factory = new CursoFactory();
 
-        //A fabrica devolve o tipo de curso baseado no parâmetro (tecnico, bacharelado ou mestrado)
-        //Se nenhum desses parãmetros foi passado, ela retorna null automaticamente
+        // A fabrica devolve o tipo de curso baseado no parâmetro (tecnico, bacharelado
+        // ou mestrado)
+        // Se nenhum desses parãmetros foi passado, ela retorna null automaticamente
         iCurso curso = factory.getCurso("tecnico");
 
+<<<<<<< Updated upstream
+=======
+        // Crie instâncias de estudantes
+>>>>>>> Stashed changes
         Estudante estudante = new Estudante("Jonas");
 
         Disciplina disciplina = new Disciplina("Matematica", "5.0", "Tecnico");
@@ -20,6 +34,33 @@ public class App {
         estudante.addDisciplina(disciplina);
 
         System.out.println(curso.Avaliacao(estudante));
+
+        // Configuração da conexão com o MongoDB
+        MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
+        MongoDatabase database = mongoClient.getDatabase("estudantesDB");
+        MongoCollection<Document> estudantesCollection = database.getCollection("estudantesCollection");
+
+        
+
+        // Cria uma instância de MongoArmazenamento com a coleção configurada
+        iArmazenamento mongoArmazenamento = new MongoDBArmazenamento(estudantesCollection);
+        // Cria uma instância de Armazenador com o MongoArmazenamento
+        Armazenador armazenadorComMongo = new Armazenador(mongoArmazenamento);
+
+        // Adicione os estudantes ao armazenador da concessionária com o Mongo
+         armazenadorComMongo.adicionarEstudante(estudante);
+
+
+
+         // Liste estudantes
+        List<Estudante> estudantes = armazenadorComMongo.listarEstudantes();
+        System.out.println("------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------");
+        System.out.println("\nEstudantes Cadastrados:");
+        for (Estudante estudiante : estudantes) {
+            System.out.println(
+                    "Nome: " + estudiante.getNome());
+        }
 
     }
 }

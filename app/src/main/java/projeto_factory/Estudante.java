@@ -28,4 +28,7 @@ public class Estudante {
         list.add(disciplina);
     }
 
+    public void setList(List<Disciplina> disciplinas) {
+    }
+
 }
